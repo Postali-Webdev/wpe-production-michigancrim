@@ -63,7 +63,7 @@ global $wp_query;
 	<link rel="preload" href="/wp-content/themes/davis/fonts/roboto/roboto-regular.woff2" as="font" type="font/woff2" crossorigin>
 
 	<?php if( is_front_page() ) : ?>
-	<link rel="preload" href="/wp-content/themes/davis/images/homepage_mobile_background.jpg" as="image" fetchpriority="high">
+	<link rel="preload" href="/wp-content/uploads/2025/10/homepage_mobile_background.jpg.webp" as="image" fetchpriority="high">
 	<?php endif; ?>
 
 	<!-- <link href="https://fonts.googleapis.com/css?family=Oswald:200,300,400,500,700,800%7COpen+Sans:400,800,700italic,700,600italic,600,400italic,300italic,300%7CSource+Sans+Pro:200,300,400%7CLato%7CYanone+Kaffeesatz:300,400,700,800%7CTeko:400,500,600,700%7CRoboto:300,400%7CFjalla+One%7CTeko:500" rel="stylesheet"> -->
