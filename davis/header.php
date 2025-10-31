@@ -61,6 +61,7 @@ global $wp_query;
 	<link rel="preload" href="/wp-content/themes/davis/fonts/teko/teko-bold.woff2" as="font" type="font/woff2" crossorigin>
 	<link rel="preload" href="/wp-content/themes/davis/fonts/roboto/roboto-light.woff2" as="font" type="font/woff2" crossorigin>
 	<link rel="preload" href="/wp-content/themes/davis/fonts/roboto/roboto-regular.woff2" as="font" type="font/woff2" crossorigin>
+	<link rel="preload" href="/wp-content/uploads/svg-icons/fonts/icomoon.woff?-7lxhgk" as="font" type="font/woff" crossorigin>
 
 	<?php if( is_front_page() ) : ?>
 	<link rel="preload" href="/wp-content/uploads/2025/10/homepage_mobile_background.jpg.webp" as="image" fetchpriority="high">
