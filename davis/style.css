@@ -1214,7 +1214,7 @@ aside .widget h5 { display: none; font-size: 20px; }
 #homepage_slider { display: none; }
 #homepage_mobile { display: block; padding: 0px; }
 #homepage_mobile .container_inner { padding: 25px 20px; }
-#homepage_mobile_slider { position: relative; min-height: 470px; background: url('images/homepage_mobile_background.jpg') 40% 0% no-repeat #ebecec; border-bottom: 4px solid #2a2a2a; padding: 0px; background-size: cover;  }
+#homepage_mobile_slider { position: relative; min-height: 470px; background: url('/wp-content/themes/davis/images/homepage_mobile_background.jpg') 40% 0% no-repeat #ebecec; border-bottom: 4px solid #2a2a2a; padding: 0px; background-size: cover;  }
 #homepage_mobile_slider .caption { position: absolute; width: 80%; top: 90px; background: none; padding: 5px 10px; text-transform: uppercase; 
 font-family: "Teko",sans-serif; font-style: normal; font-weight: 400; }
 #homepage_mobile_slider .header { display: block; color: #6a2406; font-size: 3.2em; line-height: 130%; letter-spacing: 0px; }
