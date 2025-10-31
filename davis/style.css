@@ -85,6 +85,48 @@ h3 { padding-top: 15px; }
 }
 
 
+/* Testimonial Widget */
+.testimonial-slider-outer-wrapper {
+  max-height: 150px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.testimonial-slider-outer-wrapper .testimonial-widget {
+  max-width: 100%;
+}
+
+.testimonial-slider-outer-wrapper .slick-track {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.testimonial-slider-outer-wrapper .slick-track .testimonial-content {
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* padding: 0 60px; */
+}
+
+.testimonial-slider-outer-wrapper .slick-track .testimonial-content .quote_author {
+  margin-top: 0 !important;
+}
+@media screen and (max-width: 600px) {
+  .testimonial-slider-outer-wrapper {
+    max-height: 250px;
+    height: 250px;
+  }
+  .testimonial-slider-outer-wrapper .slick-track .testimonial-content {
+    height: 250px;
+  }
+}
+
 /* homepage */
 .full_width { padding: 0px; }  /* remove padding around parallax section on Homepage */
 .home .textpanel { display: block; position: relative; padding: 35px 0px; max-width: 100%; margin: 0px auto; box-sizing: border-box; } /* content areas (text) on Homepage */
@@ -353,10 +395,23 @@ background: none repeat scroll 0 0 rgb(0, 0, 0); background: none repeat scroll 
                                                                                                   
 
 /* homepage parallax */
-#homepage_testimonials { padding: 35px 0px 40px 0px; text-align: center; background-size: cover; }   
+#homepage_testimonials { padding: 35px 0px 40px 0px; text-align: center; background-size: cover; height: 270px !important; }   
 #homepage_testimonials h3 { font-family: "roboto",sans-serif!important; font-style: normal; font-weight: 500; font-size: 32px; color: #fff; padding: 10px 0px 0px 0px; }  
 #homepage_testimonials i { font-size: 46px; display: block; color: #009ed4; margin: 0px; }   
-
+@media screen and (max-width: 1024px) {
+  #homepage_testimonials {
+    height: 300px !important;
+  }
+}
+@media screen and (max-width: 768px) {
+  #homepage_testimonials {
+    height: 500px !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
 
 /* testimonial rotator */
 #homepage_testimonials .testimonial_rotator_slide_title { display: none; }  /* hide the title */

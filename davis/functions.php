@@ -1,5 +1,7 @@
 <?php
 
+require_once dirname( __FILE__ ) . '/includes/testimonials-cpt.php'; // Custom Post Type Testimonials
+
 // enqueue the child theme stylesheet
 Function wp_schools_enqueue_scripts() {
 wp_register_style( 'childstyle', get_stylesheet_directory_uri() . '/style.css', array(), filemtime( get_stylesheet_directory() . '/style.css' )  );
@@ -248,3 +250,94 @@ function retrieve_latest_gform_submissions() {
     }
 }
 add_action('check_form_entries', 'retrieve_latest_gform_submissions');
+
+
+// [testimonial_widget count="3"]
+function davis_testimonial_widget_shortcode($atts = []) {
+    $atts = shortcode_atts([
+        'count' => 3
+    ], $atts, 'testimonial_widget');
+
+    $post_type = post_type_exists('testimonials') ? 'testimonials' : (post_type_exists('testimonial') ? 'testimonial' : '');
+    if (!$post_type) {
+        return '';
+    }
+
+    $count = max(1, min(10, intval($atts['count'])));
+    $allowed_tags = ['h2','h3','h4','h5','h6','p','div'];
+
+    $q = new WP_Query([
+        'post_type' => $post_type,
+        'posts_per_page' => $count,
+        'post_status' => 'publish',
+        'orderby' => 'date',
+        'order' => 'DESC',
+        'no_found_rows' => true,
+        'ignore_sticky_posts' => true,
+    ]);
+
+    if (!$q->have_posts()) {
+        return '';
+    }
+
+    ob_start();
+    echo '<div class="testimonial-slider-outer-wrapper"><div class="testimonial-widget">';
+    while ($q->have_posts()) {
+        $q->the_post();
+        $title = get_the_title();
+        // $content = wp_trim_words(wp_strip_all_tags(get_the_content(null, false)), 40, '…');
+        $content = get_the_content();
+
+        echo '<article class="testimonial-item">';
+            echo '<div class="testimonial-content">' . $content . '</div>';
+        echo '</article>';
+    }
+    echo '</div></div>';
+    wp_reset_postdata();
+
+    return ob_get_clean();
+}
+add_shortcode('testimonial_widget', 'davis_testimonial_widget_shortcode');
+
+/**
+ * Disable Theme/Plugin File Editors in WP Admin
+ * - Hides the submenu items
+ * - Blocks direct access to editor screens
+ */
+function postali_disable_file_editors_menu() {
+    // Remove Theme File Editor from Appearance menu
+    remove_submenu_page( 'themes.php', 'theme-editor.php' );
+    // Optional: also remove Plugin File Editor from Plugins menu
+    remove_submenu_page( 'plugins.php', 'plugin-editor.php' );
+}
+add_action( 'admin_menu', 'postali_disable_file_editors_menu', 999 );
+
+// Block direct access to the editors even if someone knows the URL
+function postali_block_file_editors_direct_access() {
+    wp_die( __( 'File editing through the WordPress admin is disabled.' ), 403 );
+}
+add_action( 'load-theme-editor.php', 'postali_block_file_editors_direct_access' );
+add_action( 'load-plugin-editor.php', 'postali_block_file_editors_direct_access' );
+
+/**
+ * Disable the Additional CSS panel in the Customizer.
+ * Primary method: remove the custom_css component early in load.
+ */
+function postali_disable_customizer_additional_css_component( $components ) {
+    $key = array_search( 'custom_css', $components, true );
+    if ( false !== $key ) {
+        unset( $components[ $key ] );
+    }
+    return $components;
+}
+add_filter( 'customize_loaded_components', 'postali_disable_customizer_additional_css_component' );
+
+/**
+ * Fallback: remove the Additional CSS section if it's present.
+ */
+function postali_remove_customizer_additional_css_section( $wp_customize ) {
+    if ( method_exists( $wp_customize, 'remove_section' ) ) {
+        $wp_customize->remove_section( 'custom_css' );
+    }
+}
+add_action( 'customize_register', 'postali_remove_customizer_additional_css_section', 20 );

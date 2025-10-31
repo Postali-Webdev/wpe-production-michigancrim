@@ -11,7 +11,6 @@
 jQuery( function ( $ ) {
   "use strict";
 
-
 // Slick
   $('#practice_areas_carousel').slick({
     dots: false,
@@ -58,6 +57,21 @@ jQuery( function ( $ ) {
       // settings: "unslick"
       // instead of a settings object
     ]
+  });
+
+
+  $('.testimonial-widget').slick({
+    vertical: true,
+    verticalSwiping: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    infinite: true,
+    speed: 300,
+    dots: false,
+    arrows: false,
+    autoplay: true,
+    autoplaySpeed: 5000,
+    adaptiveHeight: false
   });
 
 });
