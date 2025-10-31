@@ -79,7 +79,7 @@ function qode_scripts() {
 	global $is_IE;
 	global $qode_toolbar;
 	wp_enqueue_script("jquery");
-	wp_enqueue_script("plugins", QODE_ROOT."/js/plugins.js",array(),false,true);
+	//wp_enqueue_script("plugins", QODE_ROOT."/js/plugins.js",array(),false,true);
 	if ( $is_IE ) {
 		wp_enqueue_script("html5", QODE_ROOT."/js/html5.js",array(),false,false);
 	}

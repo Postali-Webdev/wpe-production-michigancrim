@@ -485,6 +485,9 @@ nav.main_menu > ul > li > a span { border: 0px!important; }
 .drop_down .second .inner2 ul li a { font-family: "roboto",sans-serif!important; font-style; normal; font-weight: 300; margin-top: 0px; display: block; padding: 8px 20px; }  /* drop down menus under top navigation */ 
 .drop_down .second .inner2 ul li a:hover { }
 
+.main_menu.drop_down > ul > li.menu-item-has-children:hover .second { visibility: visible; }
+.main_menu.drop_down>ul>li.menu-item-has-children .second .inner2 > ul >li.menu-item-has-children:hover > ul { visibility: visible; }
+
 /* fixes to top nav */
 .drop_down .second .inner2 ul { min-width: 265px !important; }
 .drop_down .second .inner ul li ul { min-width: 320px !important; }
