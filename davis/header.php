@@ -62,7 +62,7 @@ global $wp_query;
 	<link rel="preload" href="/wp-content/themes/davis/fonts/roboto/roboto-light.woff2" as="font" type="font/woff2" crossorigin>
 	<link rel="preload" href="/wp-content/themes/davis/fonts/roboto/roboto-regular.woff2" as="font" type="font/woff2" crossorigin>
 
-	<?php if( is_home() ) : ?>
+	<?php if( is_front_page() ) : ?>
 	<link rel="preload" href="/wp-content/themes/davis/images/homepage_mobile_background.jpg" as="image" fetchpriority="high">
 	<?php endif; ?>
 
