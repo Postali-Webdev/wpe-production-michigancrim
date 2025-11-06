@@ -127,6 +127,33 @@ h3 { padding-top: 15px; }
   }
 }
 
+/* Progress Bar Widget */
+.progress-bar-widget p {
+  color: #fff !important;
+  font-weight: 300;
+  margin-bottom: 5px !important;
+  font-family: "Teko", sans-serif !important;
+  letter-spacing: 1px;
+  font-size: 20px;
+}
+.progress-bar-widget .outer-progress-bar {
+  width: 100%;
+  background: #fff;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
+  border-radius: 4px;
+  position: relative;
+  height: 30px;
+}
+.progress-bar-widget .outer-progress-bar .inner-progress-bar {
+  background: #009ed4;
+  border-radius: 4px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  z-index: 2;
+}
+
 /* homepage */
 .full_width { padding: 0px; }  /* remove padding around parallax section on Homepage */
 .home .textpanel { display: block; position: relative; padding: 35px 0px; max-width: 100%; margin: 0px auto; box-sizing: border-box; } /* content areas (text) on Homepage */

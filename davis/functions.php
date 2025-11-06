@@ -299,6 +299,26 @@ function davis_testimonial_widget_shortcode($atts = []) {
 }
 add_shortcode('testimonial_widget', 'davis_testimonial_widget_shortcode');
 
+
+function davis_progress_bar_widget_shortcode($atts = []) {
+    $atts = shortcode_atts([
+        'percentage' => 0,
+        'label' => ''
+    ], $atts, 'progress_bar_widget');
+
+    ob_start();
+    ?>
+    <div class="progress-bar-widget">
+        <p><strong><?php echo esc_html($atts['label']); ?></strong></p>
+        <div class="outer-progress-bar">
+            <div class="inner-progress-bar" style="width: <?php echo esc_attr($atts['percentage']); ?>%;"></div>
+        </div>
+    </div>
+    <?php
+    return ob_get_clean();
+}
+add_shortcode('progress_bar_widget', 'davis_progress_bar_widget_shortcode');
+
 /**
  * Disable Theme/Plugin File Editors in WP Admin
  * - Hides the submenu items
