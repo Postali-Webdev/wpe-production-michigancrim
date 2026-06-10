@@ -12,7 +12,7 @@ jQuery( function ( $ ) {
 	"use strict";
 
     $('.tabs-container .main-content .tab-content:first-of-type').addClass('active');
-    
+
     $('.main-buttons span').click(function() {
 
         // Check for active
