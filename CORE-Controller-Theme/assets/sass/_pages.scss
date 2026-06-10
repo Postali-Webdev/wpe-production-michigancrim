@@ -906,6 +906,15 @@
             left: 0;
             background-size: cover;
             background-position: center top;
+
+            img {
+                -o-object-fit: cover;
+                   object-fit: cover;
+                -o-object-position: center center;
+                   object-position: center center;
+                height: 100%;
+                width: 100%;
+            }
         }
     }
 

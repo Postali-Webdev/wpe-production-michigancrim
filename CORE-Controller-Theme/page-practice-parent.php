@@ -6,7 +6,13 @@
 **/
 get_header();?>
 
+<?php if (has_post_thumbnail( $post->ID ) ): ?> 
+<?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' ); ?>  
 
+<link rel="preload" as="image" href="<?php echo $image[0]; ?>.webp">
+<link rel="preload" as="image" href="<?php echo $image[0]; ?>">
+
+<?php endif; ?>
 
 <div class="body-container">
 
@@ -30,8 +36,15 @@ get_header();?>
 
         <?php if (has_post_thumbnail( $post->ID ) ): ?> 
         <?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' ); ?>        
-        <div id="banner-bg" style="background-image: url('<?php echo $image[0]; ?>')">
-
+        <div id="banner-bg">
+            <?php 
+            if ( has_post_thumbnail() ) {
+                $thumbnail_id = get_post_thumbnail_id( get_the_ID() );
+                $alt_text = get_post_meta( $thumbnail_id, '_wp_attachment_image_alt', true );
+                $image_url = get_the_post_thumbnail_url( get_the_ID(), 'full' );
+                echo '<img src="' . esc_url( $image_url ) . '" alt="' . esc_attr( $alt_text ) . '" class="custom-featured-img" />';
+            }
+            ?>
         </div>
         <?php endif; ?>
 
