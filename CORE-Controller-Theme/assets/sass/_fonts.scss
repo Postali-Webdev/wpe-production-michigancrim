@@ -1,0 +1,247 @@
+/**
+ * Web Font Styles, H Styles, Body Text Styles
+ *
+ * @package Postali Child
+ * @author Postali LLC
+**/
+
+/* Fonts */
+body, h1, h2, h3, h4, h5, h6, p, a, ul {
+    // color: $body-text-color;
+} 
+p, a, ul, ol {
+
+}
+ul li, ol li {
+    margin: 0 0 0 20px;
+    font-size: 18px;
+}
+dl, blockquote, img {
+
+}
+
+a {
+    text-decoration:none;
+    transition:$trans;
+    &:hover {
+        // color:$lt-red;
+        text-decoration:none;
+    }
+}
+
+.btn {
+    overflow: hidden;
+    position: relative;
+    height: auto;
+    width:-webkit-fit-content;
+    width:-moz-fit-content;
+    width:fit-content;
+    padding: 0 25px;
+    height: 40px;
+    display: flex;
+    font-size: 16px;
+    text-transform: none;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 1px;
+    color:$blk;
+    font-weight: 600 !important;
+    font-family: $sans;
+    z-index: 0;
+    border-radius: 3px;
+    box-sizing: border-box;
+    background: #FFE6A2;
+    background: linear-gradient(135deg,rgba(255, 230, 162, 1) 0%, rgba(236, 195, 86, 1) 50%, rgba(196, 163, 71, 1) 100%);
+
+    &::after {
+        background: #FFE6A2;
+        background: linear-gradient(135deg,rgba(196, 163, 71, 1) 0%, rgba(236, 195, 86, 1) 50%, rgba(255, 230, 162, 1) 100%);
+        opacity:0;
+        content: "";
+        position: absolute;
+        top:0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        transition:$trans;
+        z-index: -1;
+    }
+
+    &:hover {
+        text-decoration: underline;
+        &::after {
+            color:$white;
+            opacity: 1;
+        }
+    }
+
+    &.transparent {
+        background: none;
+        border: 1px solid $white;
+        color: $white;
+
+        &:hover {
+            background: $white;
+            color:$blk;
+
+            &::after {
+                display:none;
+            }
+        }
+    }
+
+
+    &.alt {
+        background:transparent;
+        color:$white;
+        box-shadow: 0px 0px 0px 1px rgba(255,255,255,1) inset;
+        font-weight: 400 !important;
+
+        &::after {
+            display:none;
+        }
+
+        &:hover  {
+            background-color: $black400;
+            color:$white;
+        }
+    }
+}
+
+p,
+ul li,
+ol li  {
+    font-size:16px;
+    line-height: 26px;
+    margin-bottom:30px;
+    margin-top: 0;
+    font-family: $sans;
+
+    a {
+        font-family: $sans;
+        font-size: inherit;
+        font-weight: inherit;
+    }
+
+    &.condensed {
+        font-family: $condensed;
+    }
+
+    &.small {
+        font-size: 14px !important;
+    }
+
+    &.med {
+        font-size: 19px;
+    }
+
+    &.large {
+        font-size: 22px;
+    }
+
+    &.yellow {
+        color:$yellow !important;
+    }
+
+    &.caps {
+        text-transform: uppercase;
+    }
+
+    &.spaced {
+        letter-spacing: 1px;
+    }
+
+    &.eyebrow {
+        letter-spacing: 1px;
+        font-size: 16px;
+        color:$yellow !important;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+        font-family: $condensed !important;
+    }
+    
+    a {
+        font-family: inherit;
+        color:inherit;
+        text-decoration: underline;
+
+        &:hover {
+            text-decoration: inherit;
+        }
+    }
+}
+
+h2, h3, h4 {
+    line-height: 120%;
+    font-family: $heading;
+    color:$white;
+}
+
+h2 {
+    margin: 30px 0 20px !important;
+    display:block;
+    font-size: 48px;
+
+    &:first-of-type {
+        margin: 0 0 30px !important;
+    }
+
+    &.heading-sm {
+        font-size: 32px;
+    }
+
+    @include respond(tab-land) {
+        font-size: 38px;
+    }
+
+    @include respond(tab-port) {
+        font-size: 32px;
+    }
+}
+
+h3 {
+    margin: 30px 0 20px !important;
+    display:block;
+    font-size: 32px;
+
+    @include respond(phone) {
+        font-size: 28px;
+    }
+}
+
+h4 {
+    margin: 30px 0 20px !important;
+    display:block;
+    font-size: 22px;
+}
+
+.body-container {
+    p {
+        color:$white;
+        font-family: $sans;
+    }
+    
+    ul li, 
+    ul li a,
+    p a {
+        font-size:16px;
+        line-height: 30px;
+        margin-top: 0;
+        font-family: $sans;
+        color: inherit;
+        margin:0 !important;
+        color:$white;
+    }
+
+    ul {
+        margin-bottom:30px;
+
+        li {
+            a {
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,278 @@
+/**
+ * Footer Styles
+ *
+ * @package Postali Child
+ * @author Postali LLC
+**/
+
+.footer {    
+    padding-bottom: 40px;
+
+    iframe {
+        width: 100%;
+        height: 300px;
+        max-width: 450px;
+        -webkit-filter: grayscale(1);
+                filter: grayscale(1);
+    }
+    
+    p,
+    ul li a {
+        color:$white;
+        line-height: 170%;
+        font-size: 16px;
+    }
+    
+    strong {
+        margin-bottom: 5px;
+        display: inline-block;
+    }
+
+    .spacer-60 {
+        @include respond(phone) {
+            height:30px;
+        }
+    }
+
+    .footer-spacer {
+        height:50px;
+        margin-bottom: 50px;
+        border-bottom: 1px solid $black500;
+        width: 100%;
+        display: block;
+    }
+
+    .container {
+        .columns {
+            .column-50 {
+                .custom-logo-link {
+                    img {
+                        max-height: 50px;
+                        width: auto;
+                        height: auto;
+                        max-width: 320px;
+                    }
+                }
+            }
+
+            .column-25 {
+                &.menu {
+                    @include respond(tab-port) {
+                        margin-top: 40px !important;
+                    }
+                }
+            }
+
+            p.caps.yellow.small.spaced.condensed {
+                margin-bottom: 15px;
+            }
+
+
+            .menu {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+        
+                li {
+                    margin: 0;
+    
+                    a {
+                        text-decoration: none;
+                        font-size: 20px;
+                        line-height: 200%;
+                        
+                        &:hover {
+                            color:$yellow;
+                        }
+                    }
+                }
+            }
+
+            .contact-info {
+                min-width: 370px;
+
+                @media screen and (max-width:870px) {
+                    width: 100%;
+                    min-width: auto;
+                }
+
+                p {
+                    margin-bottom: 10px;
+                    font-size: 20px;
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    font-weight: 400;
+
+                    @include respond(tab-land) {
+                        font-size: 17px;
+                    }
+
+                    a {
+                        text-decoration: none;
+
+                        &:hover {
+                            color: $yellow;
+                        }
+                    }
+                    
+                    span {
+                        color:$yellow;
+                    }
+                }
+            }
+
+            .socials {
+                ul {
+                    list-style-type: none;
+                    margin: 0;
+                    display: flex;
+                    gap: 10px;
+
+                    li {
+                        margin:0;
+
+                        a {
+                            font-size: 30px;
+                            text-decoration: none;
+                            color:$black500;
+
+                            &:hover {
+                                color:$yellow;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .addresses {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 20px;
+                width: 68%;
+
+                @media screen and (max-width:1300px) {
+                    grid-template-columns: repeat(2, 1fr);
+                    width: 50%;
+                }
+
+                @media screen and (max-width:870px) {
+                    width: 100%;
+                }
+
+                @include respond(phone) {
+                    margin-top: 40px;
+                    grid-template-columns: 1fr;
+                }
+
+                .address-block {
+                    flex-direction: column;
+                    width: 100%;
+
+                    p {
+                        font-size: 14px;
+
+                        a {
+                            text-decoration: none;
+
+                            &:hover {
+                                color:$yellow;
+                            }
+                        }
+
+                        &.spaced {
+                            a {
+                                &:hover {
+                                    text-decoration: underline;
+                                }
+                            }
+                        }
+                        
+                        &:not(:last-child) {
+                            margin-bottom: 15px;
+                        }
+                    }
+                }
+            }
+        }
+
+        .disclaimer {
+            color:$black500;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .footer-utility {
+            display:flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            
+            @include respond(tab-port) {
+                flex-wrap: wrap;
+            }
+
+            .left {
+                display: flex;
+                gap: 30px;
+                align-items: center;
+
+                @include respond(tab-port) {
+                    flex-wrap: wrap;
+                }
+                
+                p {
+                    margin-bottom: 0;
+                    line-height: 1;
+                    color:$black500;
+                    font-size: 14px;
+                }
+
+                ul {
+                    margin: 0;
+                    list-style: none;
+                    display: flex;
+                    gap: 15px;
+
+                    li {
+                        margin: 0;
+                        display: inline;
+
+                        a {
+                            font-family: $sans;
+                            font-size: 14px;
+                            color:$black500;
+                            line-height: 1;
+                            margin: 0;
+                            text-decoration: none;
+                            font-size: 14px;
+
+                            &:hover {
+                                color:$yellow;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .right {
+                @include respond(tab-port) {
+                    margin-top: 30px;
+                }
+
+                img {
+                    opacity: .5;
+                    max-width: 260px;
+                }
+            }
+        }
+    }
+}
+
+.page-id-7 {
+    footer {
+        iframe {
+            display:none;
+        }
+    }
+}

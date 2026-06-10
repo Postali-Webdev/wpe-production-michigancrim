@@ -1,0 +1,71 @@
+.gform_wrapper {
+    padding: 50px 50px 25px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 50px;
+    background-color: rgba($blackbg, .5);
+    border: 1px solid $black500;
+    padding: 30px 30px 15px 30px;
+    box-sizing: border-box;
+
+    @include respond(tab-port) {
+        padding:30px 30px 20px;
+    }
+
+    h2.gform_submission_error.hide_summary {
+        color: black !important;
+        margin-bottom: 0 !important;
+    }
+
+    .gfield {
+        input,
+        textarea {
+            padding:15px !important;
+            background:$black400;
+            color:$white;
+            border:none;
+        }
+    }
+
+    label {
+        color:$white;
+        text-transform: none !important;
+        font-size: 14px !important;
+        font-weight: normal;
+        font-family: $sans;
+    }
+
+    .gfield_required {
+        color: $white !important;
+    }
+
+    p.gform_required_legend {
+        color:$white;
+        font-size: 12px;
+    }
+
+    input[type="submit"] {
+        text-transform: none !important;
+        font-weight: bold !important;
+        padding: 15px 20px;
+        display: block;
+        width: 100%;
+        transition:$trans;
+        white-space: break-spaces;
+        line-height: 130% !important;
+        -webkit-appearance: none;
+        -webkit-border-radius: 0;
+        width: -webkit-fit-content;
+        width: -moz-fit-content;
+        width: fit-content;
+        background:none;
+        border:1px solid $white;
+        color:$white;
+        border-radius: 3px;
+
+        &:hover {
+            background:$white;
+            color:$blk;
+        }
+    }
+}

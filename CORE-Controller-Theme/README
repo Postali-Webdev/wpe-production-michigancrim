@@ -1,0 +1,80 @@
+# Postali Core Theme Developers Guide
+
+This file is intended to guide you through the setup of the Postali Core Theme on your WordPress website.
+
+## Installation and Setup
+
+- In the Postali Core Theme there should be a zipped folder named theme-setup.
+
+  - Unzip the theme-setup folder found in the parent theme
+  - In the theme-setup folder you'll find a folder for the child theme, plugins, placeholder images (optional) and the database sql file (local.sql).
+  - Move the child theme into your /wp-content/themes folder
+  - Move all included plugins into your /wp-content/plugins folder
+  - Import the provided sql file into your local wordpress database. Note: You will need to update the siteurl and home fields in the wp_options table to match your local environments url.
+  - (Optional) Copy placeholder images into the /wp-content/uploads folder. Use a plugin (Media Sync) to sync the files if needed.
+
+- Activate all plugins before setting the Postali Core Child theme active. Note: You can leave perfornmance and security plugins (WP Rocket and Wordfence) disabled while developing.
+
+- If using the provided sql file, your WP Admin credentials will be:
+
+  - username: admin
+  - password: P0$taliWeb43215
+
+- After setting up your child theme, plugins and database, please delete the theme-setup folder.
+
+## Theme Development
+
+- Most global site elements and styles can be edited within the WP Admin under CORE Site Setup. These ACF fields are used in the block-design.php file. If you need to make code adjustments to these settings, please pull the block-design.php file into your child theme and make the changes there.
+- The same applies for any page templates that might need some adjusting. For the most part, all page templates, except for the front-page.php (homepage) template, should not require any code changes.
+
+- Before starting work in the Child Theme, first use npm init and npm install to grab all dependencies needed to run Compass (for SASS) and Grunt (for JS).
+
+  - Run compass from terminal in the Child Theme using the command compass watch
+    - All CSS should be written using SASS. Add your code to /assets/sass/\_your-stylsheet-name.scss
+  - Run grunt from the terminal in the Child Theme using the command grunt watch --force
+    - All JS should be added to /assets/js/src/your-script-name.js and compiled with grunt
+
+- When creating your homepage, make sure to add front-page.php to your child theme.
+
+  - Pre-built classes should be relied on as much as possible when structing your homepage template. Please reference the classes that already exist in the Parent Theme.
+  - Any new classes/styles should be added in the Child Theme using SASS.
+  - The Slick Slider JS library is already enqueued from the Parent Theme. Custom Slick Slider code can be added in the Child Theme. Reference the Parent Template files for examples if needed.
+
+  ## Optimizations
+
+  - Once theme development is completed, please enable WP Rocket.
+
+    - In WP Rocket, navigate to File Optimizations and enable the following settings:
+
+      - Minify CSS Files
+      - Optimize CSS Delivery (Load CSS Asynchronously)
+        = Minify JavaScript Files
+      - Load JavaScript Deferred
+      - Delay JavaScript Execution
+        - Add the following to the exlcluded JavaScript Files section:
+          \/jquery(-migrate)?-?([0-9.]+)?(.min|.slim|.slim.min)?.js(\?(._))?( |'|"|>)
+          js-(before|after)
+          (?:/wp-content/|/wp-includes/)(._)
+          callrail
+          //cdn.callrail.com/companies/522135074/a7d7688e9b417547241d/12/swap.js
+          /gtag/js
+          gtag\(
+          /gtm.js
+          lawmatics
+          https://navi.lawmatics.com/intake.min.js
+          lm-embedded-script
+      - You can add more files to the exclusion list if needed to prevent site functionality from breaking.
+
+    - In WP Rocket, navigate to Media and enable the following settings:
+
+      - Enable for Images
+        - Under the Excluded Images or iframes section, be sure to target classes for banner images and the header logo. Note: Exclude any image that appears above the fold.
+
+    - Enable Imagify
+      - In Imagify, select the following settings:
+        - Auto-Optimize images on upload
+        - Backup original Images
+        - Lossless Compress
+        - Under Next-Gen Image Format, select WebP
+          - Display images using <picture>
+            = Save your settings and bulk optimize all images
