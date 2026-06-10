@@ -148,6 +148,28 @@
                 }
             }
         }
+
+        .desktop-bg {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+
+            img {
+                height: 100%;
+                width: 100%;
+                -o-object-fit: cover;
+                   object-fit: cover;
+                -o-object-position: top !important;
+                   object-position: top !important;
+            }
+
+            @include respond(tab-port) {
+                display: none;
+            }
+        } 
     }
 
     .hp-p1 {

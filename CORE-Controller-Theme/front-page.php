@@ -8,7 +8,7 @@ get_header();?>
 
 <div class="body-container">
 
-    <section class="banner" id="hp-banner" style="background-image:url(<?php the_field('banner_bg'); ?>);">
+    <section class="banner" id="hp-banner">
         <div class="container">
             <div class="columns">
                 <div class="column-50">
@@ -46,6 +46,9 @@ get_header();?>
                 </a>
             <?php endwhile; ?>
             <?php endif; ?> 
+        </div>
+        <div class="desktop-bg">
+            <img src="<?php the_field('banner_bg'); ?>" alt="Maurice Davis" />
         </div>
     </section>
 
