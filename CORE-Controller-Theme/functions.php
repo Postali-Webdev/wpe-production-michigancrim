@@ -330,52 +330,6 @@
         }
     }
 
-    // Automatic theme updates from the GitHub repository
-    add_filter('pre_set_site_transient_update_themes', 'automatic_GitHub_updates', 100, 1);
-    function automatic_GitHub_updates($data) {
-    // Theme information
-    $theme   = get_stylesheet(); // Folder name of the current theme
-    $current = wp_get_theme()->get('Version'); // Get the version of the current theme
-    // GitHub information	    
-    $user = 'Postali-Webdev'; // The GitHub username hosting the repository
-    $repo = 'CORE-Controller-Theme'; // Repository name as it appears in the URL
-    $token = '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'; //https://github.com/settings/personal-access-tokens/new
-    $file = @json_decode(@file_get_contents('https://api.github.com/repos/'.$user.'/'.$repo.'/releases/latest', false,
-         stream_context_create(['http' => ['header' => "User-Agent: ".$user."\r\nAuthorization: token $token\r\n"]])
-     ));
-   
-    if($file) {
-        $update = filter_var($file->tag_name, FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
-        // Only return a response if the new version number is higher than the current version
-        if($update > $current) {
-        $data->response[$theme] = array(
-            'theme'       => $theme,
-            // Strip the version number of any non-alpha characters (excluding the period)
-            // This way you can still use tags like v1.1 or ver1.1 if desired
-            'new_version' => $update,
-            'url'         => 'https://github.com/'.$user.'/'.$repo,
-            'package'     => $file->assets[0]->browser_download_url,
-        );
-        }
-    }
-    return $data;
-
-    echo $data;
-
-    }
-
-    add_filter('http_request_args', function($parsed_args, $url) 
-    {
-    $token = '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'; //https://github.com/settings/personal-access-tokens/new
-    $user = 'Postali-Webdev'; // The GitHub username hosting the repository
-    $repo = 'CORE-Controller-Theme'; // Repository name as it appears in the URL
-    
-    if (str_contains($url, "$user/$repo")) {
-        $parsed_args['headers'] = ['Authorization'=> 'token '.$token];
-    }
-    return $parsed_args;
-    }, 10, 2);
-
 
 // Gravity Forms - Check for form submissions in last 5 days - send email if none found
 function retrieve_latest_gform_submissions() {
