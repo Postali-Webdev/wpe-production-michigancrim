@@ -1,5 +1,5 @@
 {
-	"name"             : "postlai/postali-chhild",
+	"name"             : "postlai/postali-child",
 	"description"      : "A theme for Attorneys",
 	"version"          : "1.0.0",
 	"type"             : "wordpress-theme",
@@ -10,7 +10,7 @@
 	},
 	"authors"          : [
 		{
-			"name" : "Tyler Means",
+			"name" : "Postali Development",
 			"email": "webdev@postali.com"
 		}
 	],

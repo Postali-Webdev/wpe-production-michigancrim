@@ -41,8 +41,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
     <?php if(is_page_template('front-page.php')): ?>
-    <link rel="preload" as="image" href="https://www.michigancriminallawyer.com/wp-content/uploads/2026/03/hp-banner-bg.jpg.webp">
-    <link rel="preload" as="image" href="https://www.michigancriminallawyer.com/wp-content/uploads/2026/03/hp-banner-bg.jpg">
+    <link rel="preload" as="image" href="https://www.michigancriminallawyer.com/wp-content/uploads/2026/03/hp-banner-bg.jpg" fetchpriority="high">
+    <link rel="preload" as="image" href="https://www.michigancriminallawyer.com/wp-content/uploads/2026/06/hp-header-mobile.jpg" fetchpriority="high">
     <?php endif; ?>
 
 </head>

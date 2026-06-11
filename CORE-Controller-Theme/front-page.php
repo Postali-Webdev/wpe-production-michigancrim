@@ -13,8 +13,8 @@ get_header();?>
             <div class="columns">
                 <div class="column-50">
                     <div class="spacer-60"></div>
-                    <p class="eyebrow"><?php the_title(); ?></p>
-                    <h1><?php the_field('banner_headline'); ?></h1>
+                    <h1><?php the_title(); ?></h1>
+                    <p class="banner-headline"><?php the_field('banner_headline'); ?></p>
                     <div class="spacer-30"></div>
                     <div class="banner-cta-block">
                         <p class="cta-headline"><span>free</span> consultation • available 24/7</p>
@@ -24,7 +24,9 @@ get_header();?>
                     </div>
                 </div>
             </div>
-            <div class="container-bg" style="background-image:url(<?php the_field('banner_bg'); ?>);"></div>
+            <div class="container-bg">
+                <img src="/wp-content/uploads/2026/06/hp-header-mobile.jpg" alt="Maurice Davis" fetchpriority="high"/>
+            </div>
         </div>
 
         <div class="banner-touts">
@@ -48,7 +50,7 @@ get_header();?>
             <?php endif; ?> 
         </div>
         <div class="desktop-bg">
-            <img src="<?php the_field('banner_bg'); ?>" alt="Maurice Davis" />
+            <img src="<?php the_field('banner_bg'); ?>" alt="Maurice Davis" fetchpriority="high"/>
         </div>
     </section>
 
