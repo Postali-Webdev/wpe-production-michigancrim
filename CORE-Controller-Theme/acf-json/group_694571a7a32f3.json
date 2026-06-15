@@ -180,6 +180,40 @@
             "ui": 1
         },
         {
+            "key": "field_6a301dad7bbf0",
+            "label": "Menu Type",
+            "name": "menu_type",
+            "aria-label": "",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6a1de1994245c",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "pre": "Pre-existing",
+                "custom": "Custom"
+            },
+            "default_value": "",
+            "return_format": "value",
+            "allow_null": 0,
+            "other_choice": 0,
+            "allow_in_bindings": 0,
+            "layout": "vertical",
+            "save_other_choice": 0
+        },
+        {
             "key": "field_6a1de1bc4245d",
             "label": "Custom Sidebar Menu",
             "name": "sidebar_menu",
@@ -190,9 +224,9 @@
             "conditional_logic": [
                 [
                     {
-                        "field": "field_6a1de1994245c",
+                        "field": "field_6a301dad7bbf0",
                         "operator": "==",
-                        "value": "1"
+                        "value": "custom"
                     }
                 ]
             ],
@@ -228,6 +262,32 @@
                     "parent_repeater": "field_6a1de1bc4245d"
                 }
             ]
+        },
+        {
+            "key": "field_6a301de97bbf1",
+            "label": "Menu",
+            "name": "pre-menu",
+            "aria-label": "",
+            "type": "menu",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6a301dad7bbf0",
+                        "operator": "==",
+                        "value": "pre"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "html",
+            "allow_null": 0,
+            "allow_in_bindings": 0
         }
     ],
     "location": [
@@ -249,5 +309,7 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1780343848
+    "allow_ai_access": false,
+    "ai_description": "",
+    "modified": 1781539268
 }

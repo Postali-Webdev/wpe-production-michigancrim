@@ -67,7 +67,104 @@ get_header();?>
                 <div class="column-66 block">
                     <?php the_field('upper_content'); ?>
                 </div>
-                <div class="column-33 block">
+                <div class="column-33 sidebar-block block">
+
+                    <div class="sidebar-header">Related Practice Areas</div>
+
+                    <?php if(get_field('custom_sidebar_menu')) { ?>
+            
+
+                        <?php if(get_field('menu_type') == 'pre') { ?>
+                    
+                            <div class="sidebar-nav">
+                                <?php the_field('pre-menu'); ?>
+                            </div>
+                    
+                        <?php } elseif (get_field('menu_type') == 'custom') { ?>
+                    
+                            <div class="sidebar-nav">
+                                
+                            <?php
+                                // Get the current page's ID
+                                $parent_id = get_the_ID();
+
+                                // If the current page is a child, get its parent's ID
+                                if ($post->post_parent) {
+                                    $parent_id = $post->post_parent;
+                                }
+
+                                $child_args = array(
+                                    'post_parent' => $parent_id,
+                                    'post_type'   => 'page',    // Ensure it only gets pages
+                                    'post_status' => 'publish',
+                                    'order' => 'ASC',
+                                    'posts_per_page' => '6',
+
+                                );
+
+                                $children = get_children($child_args);
+
+                                if ($children) {
+                                    echo '<ul class="sidebar-nav">';
+                                    foreach ($children as $child) {
+                                        echo '<li>';
+                                        echo '<a href="' . get_permalink($child->ID) . '">' . $child->post_title . '</a> <span></span>';
+                                        // Add more data like excerpt:
+                                        // echo apply_filters('the_content', $child->post_content);
+                                        echo '</li>';
+                                    }
+                                    echo '</ul>';
+                                } else {
+                                    $args = array(
+                                        'container' => false,
+                                        'theme_location' => 'footer-practice-areas'
+                                    );
+                                    wp_nav_menu( $args );
+                                }
+                                ?>
+                            </div>
+                    
+                        <?php } ?>
+                    
+                    <?php } else { 
+                        $current_id = get_the_ID();
+                        $parent_id = wp_get_post_parent_id($current_id);
+                        if ($parent_id) {
+                            $pages = get_pages(array(
+                                'parent' => $parent_id,
+                                'sort_column' => 'menu_order',
+                                'sort_order' => 'ASC',
+                                'exclude' => $current_id,
+                                'number' => 5
+                            ));
+
+                            if ($pages) {
+                                echo '<ul class="sidebar-nav">';
+                                foreach ($pages as $page) {
+                                    echo '<li><a href="' . get_permalink($page->ID) . '">' . esc_html($page->post_title) . '</a><span></span></li>';
+                                }
+                                echo '</ul>';
+                            }
+                        } else {
+                            $args = array(
+                                'container' => false,
+                                'theme_location' => 'footer-practice-areas'
+                            );
+                            wp_nav_menu( $args );
+                        }
+                    } ?>
+
+                        
+
+
+                        <div class="spacer-15"></div>
+                        <p class="sidebar-more"><a href="/practice-areas/" title="Read more results">All Practice Areas</a> <span class="icon-tick-down"></span></p>
+
+                    </div>
+
+
+
+
                     <?php get_template_part('block','sidebar'); ?>
                 </div>
             </div>
