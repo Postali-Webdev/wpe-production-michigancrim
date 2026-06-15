@@ -62,6 +62,15 @@ get_header();?>
                 </div>
                 <div class="column-33 sidebar-block block">
 
+                <?php if(get_field('custom_sidebar_menu')) { ?>
+            
+                    <div class="sidebar-header"><?php the_field('sidebar_menu_title'); ?></div>
+                    <div class="sidebar-menu">
+                        <?php the_field('sidebar_menu'); ?>
+                    </div>
+                
+                <?php } else { ?>
+
                     <div class="sidebar-header">Related Practice Areas</div>
                     <div class="sidebar-menu">
                         
@@ -104,6 +113,9 @@ get_header();?>
                         }
                         ?>
                     </div>
+
+                    <?php } ?>
+
                 </div>
             </div>
         </div>
