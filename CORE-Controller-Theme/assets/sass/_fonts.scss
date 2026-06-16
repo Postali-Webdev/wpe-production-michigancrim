@@ -5,6 +5,60 @@
  * @author Postali LLC
 **/
 
+/* roboto-condensed-regular */
+@font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: $condensed;
+    font-style: normal;
+    font-weight: 400;
+    src: url('/wp-content/themes/CORE-Controller-Theme/assets/fonts/roboto-condensed.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* roboto-condensed-600 - latin */
+@font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: $condensed;
+    font-style: normal;
+    font-weight: 600;
+    src: url('/wp-content/themes/CORE-Controller-Theme/assets/fonts/roboto-condensed-600.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* arimo-regular - latin */
+@font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Arimo';
+    font-style: normal;
+    font-weight: 400;
+    src: url('/wp-content/themes/CORE-Controller-Theme/assets/fonts/arimo-v36-latin-regular.woff2') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+        url('/wp-content/themes/CORE-Controller-Theme/assets/fonts/arimo-v36-latin-regular.ttf') format('truetype'); /* Chrome 4+, Firefox 3.5+, IE 9+, Safari 3.1+, iOS 4.2+, Android Browser 2.2+ */
+}
+/* arimo-700 - latin */
+@font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Arimo';
+    font-style: normal;
+    font-weight: 700;
+    src: url('/wp-content/themes/CORE-Controller-Theme/assets/fonts/arimo-v36-latin-700.woff2') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+        url('/wp-content/themes/CORE-Controller-Theme/assets/fonts/arimo-v36-latin-700.ttf') format('truetype'); /* Chrome 4+, Firefox 3.5+, IE 9+, Safari 3.1+, iOS 4.2+, Android Browser 2.2+ */
+}
+
+/* roboto-regular */
+@font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: $sans;
+    font-style: normal;
+    font-weight: 400;
+    src: url('/wp-content/themes/CORE-Controller-Theme/assets/fonts/roboto-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* roboto-bold */
+@font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: $sans;
+    font-style: normal;
+    font-weight: 800;
+    src: url('/wp-content/themes/CORE-Controller-Theme/assets/fonts/roboto-800.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+
 /* Fonts */
 body, h1, h2, h3, h4, h5, h6, p, a, ul {
     // color: $body-text-color;
@@ -175,6 +229,7 @@ h2, h3, h4 {
     line-height: 120%;
     font-family: $heading;
     color:$white;
+    font-weight: 700;
 }
 
 h2 {
@@ -245,3 +300,4 @@ h4 {
         }
     }
 }
+
