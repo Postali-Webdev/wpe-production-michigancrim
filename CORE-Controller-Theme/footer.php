@@ -127,6 +127,14 @@
 
 <script type="text/javascript" src="//cdn.callrail.com/companies/283970016/03591dc1bf8d8b457054/12/swap.js"></script> 
 
+<!-- Intaker Chat -->
+<script>(function (w,d,s,v,odl){(w[v]=w[v]||{})['odl']=odl;;
+var f=d.getElementsByTagName(s)[0],j=d.createElement(s);j.async=true;
+j.src='https://intaker.azureedge.net/widget/chat.min.js';
+f.parentNode.insertBefore(j,f);
+})(window, document, 'script','Intaker', 'davislawgroup');
+</script>
+
 <?php wp_footer(); ?>
 
 </body>
