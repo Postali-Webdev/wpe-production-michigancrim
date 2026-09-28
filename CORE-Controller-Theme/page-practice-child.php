@@ -67,7 +67,7 @@ get_header();?>
                 <div class="column-66 block">
                     <?php the_field('upper_content'); ?>
                 </div>
-                <div class="column-33 sidebar-block block">
+                <div class="column-33 block">
                     <?php get_template_part('block','sidebar'); ?>
                 </div>
             </div>
