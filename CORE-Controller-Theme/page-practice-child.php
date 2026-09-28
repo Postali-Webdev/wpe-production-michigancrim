@@ -160,10 +160,6 @@ get_header();?>
                         <div class="spacer-15"></div>
                         <p class="sidebar-more"><a href="/practice-areas/" title="Read more results">All Practice Areas</a> <span class="icon-tick-down"></span></p>
 
-                    </div>
-
-
-
 
                     <?php get_template_part('block','sidebar'); ?>
                 </div>
